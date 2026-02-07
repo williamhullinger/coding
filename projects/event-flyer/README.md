@@ -1,19 +1,19 @@
 # Rogersville Pop-Up Market — Event Flyer & Vendor Call-to-Action
 
-This project is a real-world event flyer and vendor call-to-action page created
+This project is a real-world event flyer and vendor call-to-action landing page built
 for the Rogersville Pop-Up Market, a bi-weekly community market hosted by the
 Rogersville Chamber of Commerce.
 
-The page is designed to be publicly shareable, visually polished, and easy for
-both shoppers and potential vendors to understand.
+The page is designed to be publicly shareable, visually polished, and easy to
+understand for both shoppers and potential vendors.
 
 ---
 
 ## Project Purpose
 
-This project serves dual purposes:
+This project serves two purposes:
 
-1. Deliver a real, usable web page for a community event
+1. Deliver a real, usable landing page for a community event
 2. Apply foundational web development skills while completing
    FreeCodeCamp curriculum requirements
 
@@ -35,19 +35,31 @@ approval, and potential public use.
 
 ---
 
+## Vendor Participation Policy
+
+Markets are monitored at check-in only, and there is no limit on the number
+of vendors who may participate. Multiple vendors in the same category are
+allowed, and all local makers and businesses are welcome.
+
+**Exception:**  
+Special events — including the Independence Day Celebration, Farm & Harvest
+Festival, and Christmas Market — require prior acceptance.
+
+---
+
 ## Vendor Information
 
 The market is currently seeking local vendors, including but not limited to:
 
-- Sourdough and baked goods
-- Coffee vendors
-- Fresh produce and plants
-- Jewelry
-- Candles, crafts, and handmade goods
-- Other local artisans and makers
+- Sourdough and baked goods  
+- Coffee vendors  
+- Fresh produce and plants  
+- Jewelry  
+- Candles, crafts, and handmade goods  
+- Other local artisans and makers  
 
-Vendors are responsible for providing their own tables, chairs, tents,
-and display materials.
+Vendors are responsible for providing their own tables, chairs, tents, and
+display materials.
 
 ### Vendor Contact
 
@@ -68,57 +80,3 @@ convenience.
 - Clear visual hierarchy for event information
 - Vendor-focused call-to-action section
 - Minimal JavaScript for:
-  - Copying vendor contact email
-  - Optional calendar event download
-- Designed for both desktop and mobile viewing
-
----
-
-## Live Preview
-
-This project is deployed using **GitHub Pages** and can be viewed at:
-
-> *(Add GitHub Pages URL here after deployment)*
-
-This link is intended for sharing during review and approval.
-
----
-
-## Technology Used
-
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Git & GitHub
-- GitHub Pages for deployment
-
-No frameworks or libraries were used.
-
----
-
-## Project Status
-
-**Initial delivery complete.**
-
-Future enhancements may include:
-- Print-friendly layout
-- Vendor interest form
-- Social media–optimized versions
-- Additional event dates or seasonal updates
-
----
-
-## Author
-
-Created by a self-taught developer transitioning into professional web
-development.
-
-This project represents a milestone in delivering a real, client-facing
-web page using foundational skills.
-
----
-
-## Notes
-
-This repository reflects an active learning process.
-Code structure, styling, and features may evolve as experience grows.
