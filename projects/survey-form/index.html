@@ -1,0 +1,159 @@
+<!--
+Project: Build a Survey Form
+Author: William Hullinger
+Description:
+A responsive HTML survey form built for the
+freeCodeCamp Responsive Web Design Certification.
+
+This document demonstrates proper use of:
+- Semantic HTML elements
+- Form controls
+- Input validation attributes
+- Accessibility-friendly labels and IDs
+
+
+Key Elements Used:
+
+<h1>        : Page title (id="title")
+<p>         : Short description (id="description")
+<form>      : Survey container (id="survey-form")
+<label>     : Describes input purpose (for accessibility)
+<input>     : Collects user data
+<select>    : Dropdown menu
+<option>    : Dropdown choices
+<textarea>  : Multi-line user comments
+<button>    : Form submission control
+
+
+Input Types Used:
+
+type="text"     : Name input
+type="email"   : Email input (HTML5 validation)
+type="number"  : Numeric input with range limits
+type="radio"   : Single-choice selection
+type="checkbox": Multi-choice selection
+type="submit"  : Form submission
+
+
+Attributes Used:
+
+id          : Uniquely identifies elements for testing/accessibility
+for         : Links labels to inputs
+name        : Groups radio buttons
+value       : Stores submitted input data
+placeholder : Instructional text inside inputs
+required    : Prevents form submission if empty
+min         : Minimum numeric value
+max         : Maximum numeric value
+type        : Defines input behavior
+
+
+Validation & Accessibility:
+
+- HTML5 validation for email and number inputs
+- Labels explicitly connected to inputs
+- Required fields enforced
+- Semantic structure for screen readers
+
+===========================================================
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Survey Form</title>
+  </head>
+
+  <body>
+ <h1 id="title">My Survey Form</h1>
+
+  <p id="description">
+    Please fill out this short survey.
+  </p>
+
+  <form id="survey-form">
+
+    <!-- Name -->
+    <label id="name-label" for="name">Name</label>
+    <input
+      id="name"
+      type="text"
+      placeholder="Enter your name"
+      required
+    />
+
+    <br><br>
+
+    <!-- Email -->
+    <label id="email-label" for="email">Email</label>
+    <input
+      id="email"
+      type="email"
+      placeholder="Enter your email"
+      required
+    />
+
+    <br><br>
+
+    <!-- Number -->
+    <label id="number-label" for="number">Age</label>
+    <input
+      id="number"
+      type="number"
+      min="1"
+      max="120"
+      placeholder="Enter your age"
+    />
+
+    <br><br>
+
+    <!-- Dropdown -->
+    <label for="dropdown">Favorite option</label>
+    <select id="dropdown">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+    </select>
+
+    <br><br>
+
+    <!-- Radio buttons -->
+    <p>Choose one:</p>
+    <label>
+      <input type="radio" name="choice" value="a" />
+      Choice A
+    </label>
+    <label>
+      <input type="radio" name="choice" value="b" />
+      Choice B
+    </label>
+
+    <br><br>
+
+    <!-- Checkboxes -->
+    <p>Select all that apply:</p>
+    <label>
+      <input type="checkbox" value="x" />
+      Option X
+    </label>
+    <label>
+      <input type="checkbox" value="y" />
+      Option Y
+    </label>
+
+    <br><br>
+
+    <!-- Textarea -->
+    <label for="comments">Comments</label><br>
+    <textarea id="comments"></textarea>
+
+    <br><br>
+
+    <!-- Submit -->
+    <button id="submit" type="submit">Submit</button>
+
+  </form>
+      
+  </body>
+</html>

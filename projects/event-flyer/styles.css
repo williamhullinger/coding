@@ -1,0 +1,210 @@
+/* Base reset + sensible defaults */
+* { box-sizing: border-box; }
+
+:root{
+  --bg: #0b0f14;
+  --paper: #0f1620;
+  --card: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.14);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.70);
+  --accent: #ffd166;
+  --accent2: #06d6a0;
+}
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 800px at 10% 0%, rgba(255,209,102,0.12), transparent 55%),
+              radial-gradient(900px 700px at 90% 20%, rgba(6,214,160,0.10), transparent 60%),
+              var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Flyer container */
+.flyer{
+  width: min(920px, 92vw);
+  margin: 24px auto 60px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+}
+
+/* Hero */
+.hero{
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+}
+
+.hero__img{
+  width: 100%;
+  height: 100%;  
+  min-height: 340px;    
+  object-fit: cover;      
+  display: block;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.hero__content{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: end;
+  gap: 10px;
+  padding: 22px 22px 26px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 10%, rgba(0,0,0,0.75) 80%);
+}
+
+h1{
+  margin: 0;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: 0.2px;
+}
+
+.subtitle{
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.badge{
+  display: inline-block;
+  width: fit-content;
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.35);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.88);
+}
+
+.hero__actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Sections */
+.section{
+  padding: 22px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+.section h2{
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+}
+
+.section p{
+  margin: 0 0 10px;
+  color: rgba(255,255,255,0.88);
+}
+
+.muted{ color: var(--muted); }
+
+/* Cards grid */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.card h3{
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.92);
+}
+
+/* Callout section */
+.callout{
+  background: radial-gradient(700px 400px at 10% 0%, rgba(255,209,102,0.18), transparent 60%),
+              rgba(255,255,255,0.03);
+}
+
+.pill-list{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 14px 0 0;
+}
+
+.pill-list li{
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.25);
+}
+
+/* Contact box */
+.contact{
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.22);
+}
+
+.contact__label{ margin: 0 0 6px; }
+.contact__email{ margin: 0 0 10px; font-size: 1.05rem; }
+
+a{
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.92);
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn--primary{
+  background: linear-gradient(180deg, rgba(255,209,102,0.95), rgba(255,209,102,0.70));
+  border-color: rgba(255,209,102,0.40);
+  color: #0b0f14;
+}
+
+.btn--ghost{
+  background: rgba(0,0,0,0.28);
+}
+
+.footer{
+  padding: 18px 22px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+
+/* Responsive */
+@media (max-width: 840px){
+  .grid{ grid-template-columns: 1fr; }
+  .hero__img{ height: 300px; }
+  .hero{ min-height: 300px; }
+}

@@ -1,0 +1,96 @@
+<!--
+Documentation Header
+
+Project Name: Event Hub
+
+Purpose: Practice semantic HTML structure using header, nav, main, section, and article elements.
+Demonstrates organizing related content and internal page navigation with anchor links.
+
+Key Elements Used:
+- header, nav, main
+- section (grouping related content)
+- article (self-contained event entries)
+- h1–h3 heading hierarchy
+- ul, li, a (navigation links)
+- img (media content)
+- meta viewport for responsive layout
+
+TODO (Future Enhancements):
+
+HTML:
+- Fix typos in headings (e.g., "pcoming Event 2")
+- Replace <image> with correct <img> element
+- Add alt text that describes each image meaningfully
+
+CSS:
+- Add layout styling for sections and articles
+- Style navigation menu (horizontal layout)
+- Improve spacing and typography
+
+Accessibility:
+- Ensure heading order remains logical
+- Improve image alt descriptions
+- Add focus styles for navigation links
+
+JavaScript:
+- Add dynamic event loading
+- Filter events by upcoming vs past
+- Add click interactions or animations
+
+Notes for Future Me:
+- <article> is for content that can stand alone
+- <section> groups related articles
+- Navigation links reference section IDs
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Event Hub</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+
+    <header>
+        <h1>Event Hub</h1>
+        <nav>
+            <ul>
+                <li> <a href="#upcoming-events">Upcoming Events</a></li>
+                <li> <a href="#past-events">Past Events</a></li>
+            </ul>    
+    </header>   
+
+    <main>
+        <!--first time using article element-->
+        <section id="upcoming-events">
+            <h2>Upcoming Events</h2>
+                <article>
+                    <h3>Upcoming Event 1</h3>
+                    <p>Learn about article elements</P>
+                </article>
+                <article>
+                    <h3>pcoming Event 2</h3>
+                    <p>Learn about article elements</P>
+                </article>
+        </section>
+        <!--I think im getting the hang of this-->
+        <section id="past-events">
+            <h2>Past Events</h2>
+                <article>
+                    <h3>Past Event 1</h3>
+                    <p>Learned about HTML semantics</p>
+                    <image src="https://cdn.freecodecamp.org/curriculum/labs/past-event1.jpg" alt="image description">
+                </article>
+                <article>
+                    <h3>Past Event 2</h3>
+                    <p>Learned about HTML semantics</p>
+                    <image src="https://cdn.freecodecamp.org/curriculum/labs/past-event2.jpg" alt="image description">
+                </article>
+        </section>
+    </main>
+</body>
+
+</html>

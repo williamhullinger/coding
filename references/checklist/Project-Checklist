@@ -1,0 +1,107 @@
+<!--
+====================================================
+HTML PROJECT THINKING CHECKLIST (START HERE)
+====================================================
+
+1== WHAT IS THIS PAGE DOING?
+
+Ask BEFORE writing any HTML:
+
+- Is the user just READING content?
+- Is the user ENTERING information?
+- Is this STRUCTURED data (rows / columns)?
+- Is this a LIST of related items?
+- Is this mainly PAGE LAYOUT?
+
+This determines the main container element.
+
+
+2== CHOOSE THE MAIN CONTAINER
+
+
+USER ENTERS DATA  → <form>
+- inputs, checkboxes, radios, dropdowns, textarea
+- requires labels and a submit button
+
+STRUCTURED DATA → <table>
+- rows + columns
+- schedules, comparisons
+
+LIST OF ITEMS → <ul> or <ol>
+- bullet points
+- steps
+- options
+
+PAGE STRUCTURE / CONTENT → semantic layout
+- <header>
+- <main>
+- <section>
+- <footer>
+
+
+3== IF THIS IS A FORM, CONFIRM ALL OF THESE
+
+
+FORM BASICS:
+- <form> element exists
+- Every input has a <label>
+- label "for" matches input "id"
+- Required fields use "required"
+
+COMMON INPUT PATTERNS:
+
+TEXT:
+<label for="name"></label>
+<input id="name" type="text" placeholder="" required>
+
+EMAIL (HTML5 validation):
+<input id="email" type="email" required>
+
+NUMBER (range validation):
+<input id="number" type="number" min="" max="">
+
+RADIO (one choice only):
+- Same name attribute
+<input type="radio" name="group" value="">
+
+CHECKBOX (multiple choices):
+- Each has a value
+<input type="checkbox" value="">
+
+DROPDOWN:
+<select id="dropdown">
+  <option value=""></option>
+</select>
+
+TEXTAREA:
+<textarea rows="" cols=""></textarea>
+
+SUBMIT BUTTON:
+<button id="submit" type="submit">Submit</button>
+
+
+4== ATTRIBUTE SANITY CHECK
+
+- id values are UNIQUE
+- label for="" matches input id=""
+- Valid input types only (text, email, number, etc.)
+- min / max → numbers only
+- minlength / maxlength → text only
+- value → radios, checkboxes, buttons
+
+------------------------------------
+5== FINAL SELF-CHECK
+------------------------------------
+
+Ask:
+"If I came back in 3 months, would this make sense?"
+
+If no:
+- Add comments
+- Rename things clearly
+- Simplify structure
+
+====================================================
+END CHECKLIST
+====================================================
+-->

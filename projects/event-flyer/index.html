@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Flyer Page</title>
+  <link href="styles.css" rel="stylesheet"/>
+</head>
+
+<body>
+ <main class="flyer">
+  
+  <header class="hero">
+    <img
+      class="hero__img"
+      src="https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?auto=format&fit=crop&w=1600&q=80"
+      alt="Outdoor community market with white tents and vendors"
+    />
+    <div class="hero__content">
+      <p class="badge">Rogersville Chamber of Commerce</p>
+      <h1>Rogersville Pop-Up Market</h1>
+      <p class="subtitle">A bi-weekly community market • May–October</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#vendors">Become a Vendor</a>
+        
+      </div>
+    </div>
+  </header>
+
+  <section id="details" class="section">
+    <h2>Event Details</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Date & Season</h3>
+        <p><strong>Starts:</strong> May 16</p>
+        <p><strong>Runs:</strong> May through October</p>
+        <p><strong>Frequency:</strong> Every two weeks</p>
+      </div>
+
+      <div class="card">
+        <h3>Setup</h3>
+        <p><strong>Vendor setup begins:</strong> 7:30 AM</p>
+        <p><strong>Bring your own:</strong> tables, chairs, tents</p>
+        <p><strong>Booth fee:</strong> $20 per market day</p>
+      </div>
+
+      <div class="card">
+  <h3>Location</h3>
+
+  <p>
+    <strong>314 S Main St</strong><br>
+    Rogersville, Missouri<br>
+    <span class="muted">(Across from Logan-Rogersville Upper Elementary)</span>
+  </p>
+
+  <p class="muted">
+    Open lot next to <strong>O’Reilly Auto Parts</strong><br>
+    Webster County
+  </p>
+
+  <p>
+    <a
+      class="btn btn--ghost"
+      href="https://www.google.com/maps?q=314+S+Main+St,+Rogersville,+MO"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View on Google Maps
+    </a>
+  </p>
+</div>
+
+  </section>
+
+  <div class="card">
+  <h3>Vendor Participation Policy</h3>
+
+  <p>
+    Markets are monitored at check-in only, and we do not restrict the number
+    of vendors who may participate.
+  </p>
+
+  <p>
+    There may be multiple vendors in the same category, and we welcome everyone
+    to attend.
+  </p>
+
+  <p class="muted">
+    <strong>Note:</strong> This policy does not apply to special events.
+    Acceptance is required for the following:
+  </p>
+
+  <ul class="muted">
+    <li>Independence Day Celebration</li>
+    <li>Farm and Harvest Festival</li>
+    <li>Christmas Market</li>
+  </ul>
+</div>
+
+
+  <section class="section">
+    <h2>What to Expect</h2>
+    <p>
+      The Rogersville Pop-Up Market is a growing outdoor market featuring local artisans,
+      makers, and small businesses. Come support local, discover new favorites, and enjoy
+      a fun community atmosphere.
+    </p>
+  </section>
+
+  <section id="vendors" class="section callout">
+    <h2>Vendors Wanted</h2>
+    <p>
+      We’re currently looking for local vendors to help launch and grow this market.
+      Early vendors will help shape the season and build a strong community presence.
+    </p>
+
+    <ul class="pill-list" aria-label="Vendor categories">
+      <li>Coffee</li>
+      <li>Baked Goods</li>
+      <li>Plants</li>
+      <li>Fresh Produce</li>
+      <li>Jewelry</li>
+      <li>Candles</li>
+      <li>Crafts</li>
+      <li>Local Artisans</li>
+    </ul>
+
+    <div class="contact">
+      <p class="contact__label"><strong>Vendor Contact</strong></p>
+      <p class="contact__email">
+        <a id="emailLink" href="mailto:btennis@rogersvillechamber.com">btennis@rogersvillechamber.com</a>
+      </p>
+
+      <div class="contact__actions">
+        <button class="btn btn--primary" id="copyEmailBtn" type="button">Copy Email</button>
+        <a class="btn btn--ghost" id="addToCalendarLink" href="#">Add to Calendar</a>
+      </div>
+
+      <p class="muted" id="copyStatus" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="muted">
+      Hosted by the Rogersville Chamber of Commerce • Market runs May–October • Bi-weekly
+    </p>
+  </footer>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

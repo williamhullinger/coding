@@ -1,0 +1,78 @@
+{
+  "explorer.confirmDragAndDrop": false,
+  "workbench.colorTheme": "Beautiful Dracula Darker",
+
+  "editor.semanticHighlighting.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "HTML tag brackets < >",
+        "scope": [
+          "punctuation.definition.tag.begin.html",
+          "punctuation.definition.tag.end.html"
+        ],
+        "settings": {
+          "foreground": "#00ffff",
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "name": "HTML tag name",
+        "scope": ["entity.name.tag.html"],
+        "settings": {
+          "foreground": "#ff4fd8",
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "name": "HTML attribute name",
+        "scope": ["entity.other.attribute-name.html"],
+        "settings": {
+          "foreground": "#39ff14"
+        }
+      },
+      {
+        "name": "HTML equals sign",
+        "scope": ["punctuation.separator.key-value.html"],
+        "settings": {
+          "foreground": "#7aa2ff"
+        }
+      },
+      {
+        "name": "HTML attribute quotes",
+        "scope": [
+          "punctuation.definition.string.begin.html",
+          "punctuation.definition.string.end.html"
+        ],
+        "settings": {
+          "foreground": "#7aa2ff"
+        }
+      },
+      {
+        "name": "HTML attribute values",
+        "scope": [
+          "string.quoted.double.html",
+          "string.quoted.single.html"
+        ],
+        "settings": {
+          "foreground": "#ffd866"
+        }
+      },
+
+      {
+        "name": "DOC header comments (use: <!-- DOC: ... -->)",
+        "scope": ["comment.block.html"],
+        "settings": {
+          "foreground": "#9CAF88",
+          "fontStyle": "bold"
+        }
+      }
+    ]
+  },
+  "[html]": {
+    "editor.suggest.insertMode": "replace"
+  }
+}
