@@ -1,0 +1,22 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Dependencies (future-proofing)
+node_modules/
+
+# Build / temp
+dist/
+build/
+.tmp/
+
+# Environment variables
+.env
+.env.*
