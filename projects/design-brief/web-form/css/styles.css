@@ -1,15 +1,4 @@
-main {
-    padding-bottom: 4rem;
-}
 
-.site-header {
-    text-align: cinter;
-    padding: 3rem 1.5rem;
-    background: #f8f8f8;
-}
-
-.section {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
+.form__textarea--hidden {
+  display: none;
 }
