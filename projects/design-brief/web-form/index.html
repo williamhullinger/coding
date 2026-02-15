@@ -5,27 +5,33 @@
         <title>Design Brief</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <link href="styles.css" rel="stylesheet"/>
+        <script src="script.js" defer></script>
     </head>
 
-    <body>
+      <body>
         <main>
-            <header>
-              <h1>Creative Web Design Brief</h1>
-              <p>This brief guides the planning, scope, and overall direction of your web project.</p>
-              <p>Answer as many sections as possible, providing as much detail as you can. Skip any quesions that do not apply.</p>
+            <header class="site-header">
+
+              <h1>Design Brief</h1>
+
+                <p>This brief guides the planning, scope, and overall direction of your web project.</p>
+                <p>Answer as many sections as possible, providing as much detail as you can. Skip any quesions that do not apply.</p>
+
               <h3>What happens after submission:</h3>
-              <ul>
-                <li>Review your submission</li>
-                <li>Follow up questions and clarification</li>
-                <li>Timeline and scope discussion</li>
-                <li>Draft contract for review</li>
-                <li>Final revisions and approval</li>
-                <li>Contract signing</li>
-                <li>Project devlopment</li>
-                <li>Client review and requeted changes</li>
-                <li>Final project delivery</li>
-              </ul> 
-              <p>This process ensures clear expectations, efficient communication, and a smooth project workflow.</p>
+
+                    <ul>
+                        <li>Review your submission</li>
+                        <li>Follow up questions and clarification</li>
+                        <li>Timeline and scope discussion</li>
+                        <li>Draft contract for review</li>
+                        <li>Final revisions and approval</li>
+                        <li>Contract signing</li>
+                        <li>Project devlopment</li>
+                        <li>Client review and requeted changes</li>
+                        <li>Final project delivery</li>
+                    </ul> 
+
+                <p>This process ensures clear expectations, efficient communication, and a smooth project workflow.</p>
             </header>
 
             <section>
@@ -33,55 +39,332 @@
                     <p>This information allows us to identify key contacts and ensure clear, consistant communication throughout the process.</p>
             
                 <form method="POST" action="#">
+
                     <fieldset>
                         <legend>Contact Details</legend>
-                        <label for="full-name">Full name:</label>
-                        <input type="text" id="full-name" name="name" placeholder="e.g., John Doe" required autocomplete="name">
 
-                        <label for="email">Email address:</label>
-                        <input type="email" id="email" name="email" placeholder="example@email.com"  required autocomplete="email">
+                        <label 
+                            for="full-name">
+                            Full name:
+                        </label>
+                            <input 
+                                type="text" id="full-name" name="name" placeholder="e.g., John Doe" required autocomplete="name">
+
+                        <label 
+                            for="email">
+                            Email address:
+                        </label>
+                            <input 
+                                type="email" id="email" name="email" placeholder="example@email.com"  required autocomplete="email">
                          
                     </fieldset>
 
                     <fieldset>
                         <legend>Business Details</legend>
-                        <label for="company">Company Name:</label>
-                        <input type="text" id="company" name="company" placeholder="Business Name" autocomplete="organization">
 
-                        <label for="title">Title:</label>
-                        <input type="text" id="title" name="title" placeholder="Job Title" autocomplete="organization-title">
+                        <label 
+                            for="company">
+                            Company Name:
+                        </label>
+                            <input 
+                                type="text" id="company" name="company" placeholder="Business Name" autocomplete="organization">
+
+                        <label 
+                            for="title">
+                            Title:
+                        </label>
+                            <input 
+                                type="text" id="title" name="title" placeholder="Job Title" autocomplete="organization-title">
                          
-                        <label for="website">website:</label>
-                        <input type="url" id="website" name="website" placeholder="Website" autocomplete="url">
+                        <label 
+                            for="website">
+                            website:
+                        </label>
+                            <input 
+                                type="url" id="website" name="website" placeholder="Website" autocomplete="url">
 
 
                     </fieldset>
             </section>
-
+                  
             <section>
                 <h2>Project Overview</h2>
-                <p>This section helps us understand the purpose, goals, and intended audience of your project.</p>
+                  <p>This section helps us understand the purpose, goals, and intended audience of your project.</p>
 
                 
                     <fieldset>
                         <legend>Project Details</legend>
-                        <label for="project-description">Briefly describe your project:</label>
-                        <textarea id="projet-description" name="project-description" placeholder="Describe Project" required></textarea>
 
-                        <label for="primary-goal">Primary project goal:</label>
-                        <textarea id="primary-goal" name="primary-goal" placeholder="Primary goal" required></textarea>
+                        <label 
+                            for="project-description">
+                            Briefly describe your project:
+                        </label>
+                        <textarea 
+                            id="projet-description" name="project-description" placeholder="Describe Project" required>
+                        </textarea>
 
-                        <label for="target-audience">Target audience:</label>
-                        <textarea id="target-audience" name="target-audience" placeholder="Target audience"></textarea>
+                        <label 
+                            for="primary-goal">
+                            Primary project goal:</label>
+                        <textarea 
+                            id="primary-goal" name="primary-goal" placeholder="Primary goal" required>
+                        </textarea>
+
+                        <label 
+                            for="target-audience">
+                            Target audience:
+                        </label>
+                        <textarea 
+                            id="target-audience" name="target-audience" placeholder="Target audience">
+                        </textarea>
                          
                     </fieldset>
                
             </section>
+                                <!--TODO: Refine wording later in paragraph-->
+            <section>
+                <h2>Scope & Features</h2>
+                  <p>This section defines what is included in the project so we can build a proper layout with 
+                     functions and features as well as set clear goals to prevent any misunderstanding later.</p>
 
-            
+                      <fieldset>
+                        <legend>Requested Pages</legend>
+                          <ul>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="home" name="requested-pages[]" value="home"
+                                    >
+                                    Home
+                                </label>
+                            </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="about" name="requested-pages[]" value="about"
+                                    >
+                                    About
+                                </label>
+                            </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="services" name="requested-pages[]" value="services"
+                                    >
+                                    Services
+                                </label>
+                            </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="product" name="requested-pages[]" value="product"
+                                    >
+                                    Products
+                                </label>
+                            </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="pricing" name="requested-pages[]" value="pricing"
+                                    >
+                                    Pricing
+                                </label>
+                            </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="blog" name="requested-pages[]" value="blog"
+                                    >
+                                    Blog
+                                </label>
+                            </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="contact" name="requested-pages[]" value="contact"
+                                    >
+                                    contact
+                                </labe>
+                            </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="integration-other-toggle" name="requested-integrations[]" value="other"
+                                    >    
+                                    Other (describe)
+                                </label>
+
+                                <textarea
+                                    id="integration-other-details" name="integration-other-details" placeholder="List any other integrations..." rows="2" style="display: none;">
+                                </textarea>
+                            </li>
+                          </ul>
+                      </fieldset>
+
+                      <fieldset>
+                        <legend>Site Functionality</legend>
+                          <ul>
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="contact-form" name="site-functionality[]" value="contact-form"
+                                    >
+                                    Contact Form
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="appointment-booking" name="site-functionality[]" value="appointment-booking"
+                                    >
+                                    Appointment Booking
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="newsletter-signup" name="site-functionality[]" value="newsletter-signup"
+                                    >
+                                    Newsletter Signup
+                                </label>
+                            </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="blog-or-news" name="site-functionality[]" value="blog-or-news"
+                                    >
+                                    Blog or news
+                                </label>
+                            </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="online-store" name="site-functionality[]" value="online-store"
+                                    >
+                                    Online Store
+                                </label>
+                            </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="content-editing" name="site-functionality[]" value="content-editing"
+                                    >
+                                    Content Editing
+                              </label>
+                            </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="functionality-other-toggle" name="site-functionality[]" value="other"
+                                    >    
+                                    Other (describe)
+                                </label>
+
+                                <textarea
+                                    id="functionality-other-details" name="functionality-other-details" placeholder="List any other functionality..." rows="2" style="display: none;">
+                                </textarea>
+                            </li>
+ 
+
+                          </ul>
+                      </fieldset>
+
+                      <fieldset>
+                        <legend>Integrations</legend>
+                          <ul>
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="maps" name="requested-integrations[]" value="maps"
+                                    >
+                                    Maps / Location    
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="email-marketing" name="requested-integrations[]" value="email-marketing"
+                                    >
+                                    Email Marketing
+                                </label>
+                            </li>
+
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="payments" name="requested-integrations[]" value="payments"
+                                    >
+                                    Payments
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="booking" name="requested-integrations[]" value="booking"
+                                    >
+                                    Booking  
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="social-feed" name="requested-integrations[]" value="social-feed"
+                                    >
+                                    Social Media Feed
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="analytics" name="requested-integrations[]" value="analytics"
+                                    >
+                                     Analytics
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="chat" name="requested-integrations[]" value="chat"
+                                    >
+                                    Chat Widget
+                                    </label>
+                                </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="reviews" name="requested-integrations[]" value="reviews"
+                                    >
+                                    Reviews
+                                    </label>
+                                </li>
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="shipping" name="requested-integrations[]" value="shipping"
+                                    >
+                                    Shipping
+                                    </label>
+                                </li>
+                             
+                             <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="integration-other-toggle" name="requested-integrations[]" value="other"
+                                    >    
+                                    Other (describe)
+                                </label>
+
+                                <textarea
+                                    id="integration-other-details" name="integration-other-details" placeholder="List any other integrations..." rows="2" style="display: none;">
+                                </textarea>
+                            </li>
+
+                          </ul>
+                      </fieldset>
+            </section>
+
         </main>
-
         
-    </body>
+      </body>
 
 </html>
