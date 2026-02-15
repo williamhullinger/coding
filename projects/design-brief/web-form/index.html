@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <title>Design Brief</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link href="styles.css" rel="stylesheet"/>
-        <script src="script.js" defer></script>
+        <link href="css/styles.css" rel="stylesheet"/>
+        <script src="js/script.js" defer></script>
     </head>
 
       <body>
@@ -186,18 +186,21 @@
                                     contact
                                 </labe>
                             </li>
-                             <li>
-                                <label>
-                                    <input 
-                                        type="checkbox" id="integration-other-toggle" name="requested-integrations[]" value="other"
-                                    >    
-                                    Other (describe)
+
+                            <li class="form__option">
+                                <label class="form__label">
+                                <input type="checkbox" class="form__checkbox js-other-toggle" value="other">
+                                <span>Other (describe)</span>
                                 </label>
 
                                 <textarea
-                                    id="integration-other-details" name="integration-other-details" placeholder="List any other integrations..." rows="2" style="display: none;">
-                                </textarea>
+                                    class="form__textarea form__textarea--hidden js-other-details"
+                                    name="other-details"
+                                    rows="3"
+                                    placeholder="Type details here...">
+                                    </textarea>
                             </li>
+
                           </ul>
                       </fieldset>
 
@@ -252,16 +255,18 @@
                                     Content Editing
                               </label>
                             </li>
-                             <li>
-                                <label>
-                                    <input 
-                                        type="checkbox" id="functionality-other-toggle" name="site-functionality[]" value="other"
-                                    >    
-                                    Other (describe)
+
+                            <li class="form__option">
+                                <label class="form__label">
+                                    <input type="checkbox" class="form__checkbox js-other-toggle" value="other">
+                                    <span>Other (describe)</span>
                                 </label>
 
                                 <textarea
-                                    id="functionality-other-details" name="functionality-other-details" placeholder="List any other functionality..." rows="2" style="display: none;">
+                                    class="form__textarea form__textarea--hidden js-other-details"
+                                    name="other-details"
+                                    rows="3"
+                                    placeholder="Type details here..."></textarea>
                                 </textarea>
                             </li>
  
@@ -344,22 +349,111 @@
                                     >
                                     Shipping
                                     </label>
+                                <li class="form__option">
+                                    <label class="form__label">
+                                        <input type="checkbox" class="form__checkbox js-other-toggle" value="other">
+                                        <span>Other (describe)</span>
+                                    </label>
+
+                                    <textarea
+                                        class="form__textarea form__textarea--hidden js-other-details"
+                                        name="other-details"
+                                        rows="3"
+                                        placeholder="Type details here...">
+                                    </textarea>
                                 </li>
-                             
-                             <li>
+                          </ul>
+                      </fieldset>
+
+                      <fieldset>
+                        <legend>Content Provided</legend>
+                            <ul>
+                              <li>
                                 <label>
                                     <input 
-                                        type="checkbox" id="integration-other-toggle" name="requested-integrations[]" value="other"
-                                    >    
-                                    Other (describe)
+                                        type="checkbox" id="serivces-description" name="requested-content[]" value="services-description"
+                                    >
+                                    Services Description    
+                                </label>
+                              </li>
+
+                              <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="mission-statement" name="requested-content[]" value="mission-statement"
+                                    >
+                                    Mission Statement
+                              </li>
+
+                              <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="about-us" name="requested-content[]" value="about-us"
+                                    >
+                                    About Us Information    
+                                </label>
+                              </li>
+
+                              <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="business-hours" name="requested-content[]" value="business-hours"
+                                    >
+                                    Business Hours
+                              </li>
+
+                              <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="pricing-information" name="requested-content[]" value="pricing-information"
+                                    >
+                                    Pricing Information    
+                                </label>
+                            </li>
+
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="faqs" name="requested-content[]" value="faqs"
+                                    >
+                                    FAQs    
+                                </label>
+                            </li>
+
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="testimonials" name="requested-content[]" value="testimonials"
+                                    >
+                                    Testimonials    
+                                </label>
+                            </li>
+
+                            <li>
+                                <label>
+                                    <input 
+                                        type="checkbox" id="product-descriptions" name="requested-content[]" value="product-descriptions"
+                                    >
+                                    Product Pescriptions    
+                                </label>
+                            </li>
+
+                            <li class="form__option">
+                                <label class="form__label">
+                                    <input type="checkbox" class="form__checkbox js-other-toggle" value="other">
+                                    <span>Other (describe)</span>
                                 </label>
 
                                 <textarea
-                                    id="integration-other-details" name="integration-other-details" placeholder="List any other integrations..." rows="2" style="display: none;">
-                                </textarea>
+                                        class="form__textarea form__textarea--hidden js-other-details"
+                                        name="other-details"
+                                        rows="3"
+                                        placeholder="Type details here..."
+                                ></textarea>
                             </li>
 
-                          </ul>
+
+                            </ul>
                       </fieldset>
             </section>
 
