@@ -747,6 +747,116 @@
                       </fieldset>
             </section>
 
+             <section>
+                <h2>Timeline</h2>
+                    <p>This section helps us understand your desired launch timeframe and the level of urgency for your project.
+                        Whether you have a specific date in mind or are flexible, providing these details allows us to plan development
+                        milestones appropriatly and set realistic expectations for delivery.
+                    </p>
+                      
+                    <fieldset class="form__fieldset">
+                        <legend class="form__legend">Project Timeline</legend>
+
+                          <ul class="form-list">
+
+                            <!-- 1 target launch date -->
+                            <li class="form__group">
+                                <label class="form__label" for="target-launch-date">Target launch date</label>
+                                    <input 
+                                        type="date" 
+                                        class="form__input" 
+                                        name="timeline[target_launch_date]" 
+                                        id="target-launch-date"/>
+                            </li>
+
+                            <!-- 2 is the date flexible? (redio yes/no) -->
+                            <li class="form__group">
+                                <p class="form__prompt">Is your launch date flexible?</p>
+
+                                <label class="form__label">
+                                    <input type="radio" class="form__radio" name="timeline[date_flexibel]" value="yes" id="timeline-flexible-yes">
+                                    <span>Yes</span>
+                                    </label>
+                           
+                                <label class="form__label">
+                                    <input type="radio" class="form__radio" name="timeline[date_flexibel]" value="no" id="timeline-flexible-no">
+                                    <span>No</span>
+                                    </label>
+                            </li>
+
+                            <!-- 3 Tied to specific event? (checkbox that reveals textarea)  -->
+                            <li class="form__group form__option">
+                                <p class="form__prompt">Is this project tied to a pecific event?</p>
+
+                                <label class="form__label">
+                                    <input 
+                                        type="checkbox" 
+                                        class="form__checkbox js-other-toggle"
+                                         name="timeline[event_tied]" 
+                                         value="yes" 
+                                         id="timeline-event">
+                                    <span>Yes</span>
+                                </label>
+                                
+                                    <textarea 
+                                        id="timeline-event-details" 
+                                        name="timeline[event_details]" 
+                                        class="form__textarea form__textarea--hidden js-other-details" 
+                                        rows="3"
+                                        placeholder="Describe the event and date...">
+                                    </textarea>
+                            </li>
+
+                            <!-- 4- Urgency (radio group) -->
+                            <li class="form__group">
+                                <p class="form__prompt">Timeline urgency</p>
+
+                                <label class="form__label">
+                                    <input 
+                                        type="radio" 
+                                        class="form__radio" 
+                                        name="timeline[urgency]" 
+                                        value="standard" 
+                                        id="timeline-urgency-standard">
+                                        <span>Standard timeline</span>
+                                </label>
+                            
+                                <label class="form__label">
+                                    <input 
+                                        type="radio" 
+                                        class="form__radio" 
+                                        name="timeline[urgency]" 
+                                         value="expedited" 
+                                        id="timeline-urgency-expedited">
+                                        <span>Expedited timeline</span>
+                                </label>
+                            
+                                <label class="form__label">
+                                    <input 
+                                        type="radio" 
+                                        class="form__radio" 
+                                        name="timeline[urgency]" 
+                                        value="rush" 
+                                        id="timeline-urgency-rush">
+                                        <span>rush / urgent timeline</span>
+                                </label>
+                            </li>
+                        
+
+                                <!-- 5- Notes     -->
+                            <li class="form__group">
+                                <label class="form__label" for="timeline-notes">Additional timeline notes</label>
+                                <textarea
+                                id="timeline-notes"
+                                name="timeline-noted"
+                                class="form__textarea"
+                                rows="4"
+                                placeholder="Provide any additional timeline context...">
+                                </textarea>
+                            </li>
+                        </ul>
+                    </fieldset>
+
         </main>
         
       </body>
