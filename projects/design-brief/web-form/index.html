@@ -1091,6 +1091,112 @@
                     </fieldset>
             </section>
 
+            <section>
+                <h2>Maintenance and Support</h2>
+                    <p>All projects include a 30-day post-launch support period to address any bugs or issues related to the delivered scope.
+                        After that period, ongoing updates, enhancements, and technical support can be discussed based on your needs. 
+                    </p>
+                      
+                    <fieldset class="form__fieldset">
+                        <legend class="form__legend">Ongoing support preferenes</legend>
+
+                          <ul class="form-list">
+
+                            <!-- suport needed? -->
+                            <li class="form__group">
+
+                                <label class="form__label">
+                                    <input 
+                                        type="radio" 
+                                        class="form__radio" 
+                                        name="maintenance[support]" 
+                                        value="none" 
+                                        id="miantenance-support-none">
+                                        <span>Not needed at this time</span>
+                                    </label>
+                                    <p id="maintenance-no-helper" class="form__notice form__notice--hidden">
+                                        No worries- your project still includes 30-day post-launch support, and ongoing support can be added anytime.</p>
+                           
+                                <label class="form__label">
+                                    <input 
+                                        type="radio" 
+                                        class="form__radio" 
+                                        name="maintenance[support]" 
+                                        value="unsure" 
+                                        id="maintenance-support-unsure"
+                                        required>
+                                        <span>Not sure yet</span>
+                                    </label>
+                                    <p id="maintenance-unsure-helper" class="form__notice form__notice--hidden">If you anticipate regular content updates or prefer ongoing support after launch, exploring
+                                        support options may be a good fit. You can also decide later based on your needs.</p>
+
+                                    <label class="form__label">
+                                    <input 
+                                        type="radio" 
+                                        class="form__radio" 
+                                        name="maintenance[support]" 
+                                        value="yes" 
+                                        id="maintenance-support-yes">
+                                        <span>Explor support options</span>
+                                    </label>
+                            </li>
+
+
+                            <li class="form__group form__group--hidden" id="maintenance-tier-group">
+                                <p class="form__context">
+                                    Plans cover routine updates, minor changes, and ongoing support. Larger feature additions are quoted sperately.
+                                </p>
+                                <p class="form__context">
+                                    Final pricing depends on site size, complexity, and update frequency.
+                                </p>
+                                <label class="form__label">
+                                    <input 
+                                        type="radio" 
+                                        class="form__radio"
+                                         name="maintenance[level]" 
+                                        value="basic" 
+                                        id="maintenance-support-basic"
+                                        required>
+                                    <span>Basic support- $75-$150/mo</span>
+                                </label>
+
+                                <label class="form__label">
+                                    <input 
+                                        type="radio" 
+                                        class="form__radio"
+                                         name="maintenance[level]" 
+                                        value="ongoing" 
+                                        id="maintenance-support-ongoing">
+                                    <span>Ongoing support-$200-$400/mo</span>
+                                </label>
+
+                                <label class="form__label">
+                                    <input 
+                                        type="radio" 
+                                        class="form__radio"
+                                         name="maintenance[level]" 
+                                        value="priority" 
+                                        id="maintenance-support-priority">
+                                    <span>Priority support- $600-$1,200/mo</span>
+                                </label>
+                            </li>
+
+                            <li class="form__group form__group--hidden" id="maintenance-hourly-group">
+                                <p class="form__helper">Or choose support as needed:</p>
+                                <label class="form__label">
+                                    <input 
+                                        type="radio" 
+                                        class="form__radio"
+                                        name="maintenance[level]" 
+                                        value="hourly" 
+                                        id="maintenance-support-hourly">
+                                    <span>Hourly support- $100hr (billed in 30-minute increments)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+            </section>
+
         </main>
         
       </body>
