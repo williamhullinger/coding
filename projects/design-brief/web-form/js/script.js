@@ -1,25 +1,39 @@
-/* =========================
-   Design Brief Form Scripts
-   - Robust toggles using aria-controls + hook classes
-   - Avoids depending on fragile layout/DOM guessing
-   ========================= */
-
 document.addEventListener("DOMContentLoaded", () => {
+  // 1) Other toggles
   setupOtherToggles();
-  setupMaintenanceSupport();
-  setupTimelineUrgencyNotice();
-  setupAutoResizeTextareas();
-  setupProgressSaveSystem();
+
+  // 2) Maintenance helpers + tier toggle
+  const updateMaintenanceUI = setupMaintenanceSupport();
+
+  // 3) Timeline urgency notice
+  const updateUrgencyNotice = setupTimelineUrgencyNotice();
+
+  // 4) Autosize textareas
+  const resizeAllTextareas = setupAutoResizeTextareas();
+
+  // 5) Progress + save/restore/reset
+  setupProgressSaveSystem({
+    onAfterApplyData: () => {
+      // After restore/reset, update UI states (no re-binding)
+      syncOtherDetailsVisibility();
+      updateMaintenanceUI?.();
+      updateUrgencyNotice?.();
+      resizeAllTextareas?.();
+    },
+  });
+
+  // Ensure UI state is correct on first load too
+  syncOtherDetailsVisibility();
+  updateMaintenanceUI?.();
+  updateUrgencyNotice?.();
+  resizeAllTextareas?.();
 });
 
 /* -------------------------
    1) "Other" checkbox => textarea toggle
-   Hook classes:
-   - .js-other-toggle
-   - .js-other-details
-   - .form__textarea--hidden
-   Preferred pairing:
-   - aria-controls="ID_OF_TEXTAREA"
+   Requires:
+   - .js-other-toggle with aria-controls="textareaId"
+   - textarea has .js-other-details + .form__textarea--hidden
 ------------------------- */
 function setupOtherToggles() {
   const toggles = document.querySelectorAll(".js-other-toggle");
@@ -27,43 +41,52 @@ function setupOtherToggles() {
 
   toggles.forEach((toggle) => {
     const targetId = toggle.getAttribute("aria-controls");
-    const details = targetId ? document.getElementById(targetId) : findNearestDetailsForToggle(toggle);
+    if (!targetId) return;
 
+    const details = document.getElementById(targetId);
     if (!details) return;
 
     // Initial state
     details.classList.toggle("form__textarea--hidden", !toggle.checked);
+    toggle.setAttribute("aria-expanded", String(toggle.checked));
 
     toggle.addEventListener("change", () => {
-      if (toggle.checked) {
-        details.classList.remove("form__textarea--hidden");
+      const isOn = toggle.checked;
+
+      details.classList.toggle("form__textarea--hidden", !isOn);
+      toggle.setAttribute("aria-expanded", String(isOn));
+
+      if (isOn) {
         details.focus();
       } else {
-        details.classList.add("form__textarea--hidden");
         details.value = "";
       }
-
-      // Keep aria-expanded accurate
-      toggle.setAttribute("aria-expanded", String(toggle.checked));
     });
   });
 }
 
-function findNearestDetailsForToggle(toggle) {
-  // Fallback only (for any toggle missing aria-controls)
-  const group = toggle.closest(".form__group");
-  if (group) {
-    const inGroup = group.querySelector(".js-other-details");
-    if (inGroup) return inGroup;
-  }
+/* Keeps "Other" textareas visible if their toggles are checked.
+   Used after restore/reset to sync UI without re-binding listeners. */
+function syncOtherDetailsVisibility() {
+  const toggles = document.querySelectorAll(".js-other-toggle");
+  if (!toggles.length) return;
 
-  const section = toggle.closest("section") || document;
-  return section.querySelector(".js-other-details");
+  toggles.forEach((toggle) => {
+    const targetId = toggle.getAttribute("aria-controls");
+    if (!targetId) return;
+
+    const details = document.getElementById(targetId);
+    if (!details) return;
+
+    const isOn = toggle.checked;
+    details.classList.toggle("form__textarea--hidden", !isOn);
+    toggle.setAttribute("aria-expanded", String(isOn));
+  });
 }
 
 /* -------------------------
    2) Maintenance section behavior
-   Expected IDs:
+   Expected IDs (your HTML):
    - maintenance-support-none
    - maintenance-support-unsure
    - maintenance-support-yes
@@ -80,50 +103,39 @@ function setupMaintenanceSupport() {
   const unsureHelper = document.getElementById("maintenance-unsure-helper");
   const tierGroup = document.getElementById("maintenance-tier-group");
 
-  // If the section doesn't exist, skip quietly
-  if (!none && !unsure && !yes && !tierGroup && !noHelper && !unsureHelper) return;
+  if (!none || !unsure || !yes || !tierGroup || !noHelper || !unsureHelper) return;
 
   function updateMaintenanceUI() {
     // Helpers
-    if (noHelper) noHelper.classList.add("form__notice--hidden");
-    if (unsureHelper) unsureHelper.classList.add("form__notice--hidden");
+    noHelper.classList.add("form__notice--hidden");
+    unsureHelper.classList.add("form__notice--hidden");
 
-    if (none && none.checked && noHelper) {
-      noHelper.classList.remove("form__notice--hidden");
-    }
-    if (unsure && unsure.checked && unsureHelper) {
-      unsureHelper.classList.remove("form__notice--hidden");
-    }
+    if (none.checked) noHelper.classList.remove("form__notice--hidden");
+    if (unsure.checked) unsureHelper.classList.remove("form__notice--hidden");
 
-    // Tiers (shown only when "yes" selected)
-    if (tierGroup) {
-      const showTiers = yes && yes.checked;
-      tierGroup.classList.toggle("form__group--hidden", !showTiers);
+    // Tiers
+    const showTiers = yes.checked;
+    tierGroup.classList.toggle("form__group--hidden", !showTiers);
 
-      if (!showTiers) {
-        const tierRadios = tierGroup.querySelectorAll('input[type="radio"]');
-        tierRadios.forEach((r) => (r.checked = false));
-      }
+    if (!showTiers) {
+      const tierRadios = tierGroup.querySelectorAll('input[type="radio"]');
+      tierRadios.forEach((r) => (r.checked = false));
     }
   }
 
-  [none, unsure, yes].forEach((el) => {
-    if (!el) return;
-    el.addEventListener("change", updateMaintenanceUI);
-  });
+  [none, unsure, yes].forEach((el) => el.addEventListener("change", updateMaintenanceUI));
 
   updateMaintenanceUI();
+  return updateMaintenanceUI;
 }
 
 /* -------------------------
    3) Timeline urgency notice
-   Expected:
+   Expected IDs:
    - timeline-urgency-expedited
    - timeline-urgency-rush
    - timeline-urgency-standard
    - timeline-urgency-notice
-   Hidden class in your HTML:
-   - .form__hint--hidden
 ------------------------- */
 function setupTimelineUrgencyNotice() {
   const expedited = document.getElementById("timeline-urgency-expedited");
@@ -131,19 +143,17 @@ function setupTimelineUrgencyNotice() {
   const standard = document.getElementById("timeline-urgency-standard");
   const notice = document.getElementById("timeline-urgency-notice");
 
-  if (!notice) return;
+  if (!expedited || !rush || !standard || !notice) return;
 
   function updateNotice() {
-    const showNotice = (expedited && expedited.checked) || (rush && rush.checked);
+    const showNotice = expedited.checked || rush.checked;
     notice.classList.toggle("form__hint--hidden", !showNotice);
   }
 
-  [standard, expedited, rush].forEach((el) => {
-    if (!el) return;
-    el.addEventListener("change", updateNotice);
-  });
+  [standard, expedited, rush].forEach((el) => el.addEventListener("change", updateNotice));
 
   updateNotice();
+  return updateNotice;
 }
 
 /* -------------------------
@@ -151,10 +161,15 @@ function setupTimelineUrgencyNotice() {
 ------------------------- */
 function setupAutoResizeTextareas() {
   const textareas = document.querySelectorAll("textarea");
+  if (!textareas.length) return;
 
   function resize(el) {
     el.style.height = "auto";
     el.style.height = `${el.scrollHeight}px`;
+  }
+
+  function resizeAll() {
+    textareas.forEach((ta) => resize(ta));
   }
 
   textareas.forEach((ta) => {
@@ -162,15 +177,22 @@ function setupAutoResizeTextareas() {
     ta.addEventListener("input", () => resize(ta));
     ta.addEventListener("focus", () => resize(ta));
   });
+
+  return resizeAll;
 }
 
-
 /* -------------------------
-   Progress + Save & Continue Later (localStorage)
-   - Fixed progress bar updates while scrolling/typing
-   - Saves locally on this device/browser
+   5) Progress + Save & Continue Later (localStorage)
+   HTML IDs used:
+   - progressbar-percent
+   - progressbar-fill
+   - progressbar-section
+   - progressbar-saved
+   - progressbar-save
+   - progressbar-clear
+   - progressbar-reset
 ------------------------- */
-function setupProgressSaveSystem() {
+function setupProgressSaveSystem({ onAfterApplyData } = {}) {
   const form = document.querySelector(".form");
   if (!form) return;
 
@@ -184,15 +206,17 @@ function setupProgressSaveSystem() {
 
   if (!percentEl || !fillEl || !sectionEl || !savedEl || !saveBtn || !clearBtn) return;
 
+  // Keep as-is so don't lose existing saves
   const STORAGE_KEY = "designBrief:v1.4";
   let saveTimer = null;
 
-  // Count “completion” using required fields only (practical + predictable)
   const requiredFields = Array.from(form.querySelectorAll("[required]")).filter((el) => el.name);
 
   function isFilled(el) {
     if (el.type === "radio") {
-      const checked = form.querySelector(`input[type="radio"][name="${CSS.escape(el.name)}"]:checked`);
+      const checked = form.querySelector(
+        `input[type="radio"][name="${CSS.escape(el.name)}"]:checked`
+      );
       return Boolean(checked);
     }
     if (el.type === "checkbox") return el.checked;
@@ -202,15 +226,14 @@ function setupProgressSaveSystem() {
 
   function computeProgress() {
     if (!requiredFields.length) return 0;
-    const uniqueNames = new Map();
 
-    // group radios by name (count as 1 requirement)
+    const unique = new Map();
     requiredFields.forEach((el) => {
-      if (el.type === "radio") uniqueNames.set(el.name, el);
-      else uniqueNames.set(`${el.name}:${el.id || el.type}`, el);
+      if (el.type === "radio") unique.set(el.name, el);
+      else unique.set(`${el.name}:${el.id || el.type}`, el);
     });
 
-    const items = Array.from(uniqueNames.values());
+    const items = Array.from(unique.values());
     const filled = items.reduce((acc, el) => acc + (isFilled(el) ? 1 : 0), 0);
     return Math.round((filled / items.length) * 100);
   }
@@ -225,7 +248,7 @@ function setupProgressSaveSystem() {
     const sections = Array.from(document.querySelectorAll(".form__section"));
     if (!sections.length) return;
 
-    const topOffset = 100; // accounts for fixed bar
+    const topOffset = 100;
     let current = sections[0];
 
     sections.forEach((sec) => {
@@ -233,7 +256,7 @@ function setupProgressSaveSystem() {
       if (rect.top - topOffset <= 0) current = sec;
     });
 
-    const title = current.querySelector(".form__section-title, h2");
+    const title = current.querySelector(".form__section-title") || current.querySelector("h2");
     sectionEl.textContent = title ? title.textContent.trim() : "Section";
   }
 
@@ -249,9 +272,7 @@ function setupProgressSaveSystem() {
       if (rect.top - topOffset <= 0) current = sec;
     });
 
-    sections.forEach((sec) => 
-      sec.classList.remove("form__section--active")
-    );
+    sections.forEach((sec) => sec.classList.remove("form__section--active"));
     current.classList.add("form__section--active");
   }
 
@@ -303,17 +324,7 @@ function setupProgressSaveSystem() {
       }
     });
 
-    // If "Other" textareas have values, ensure visible
-    const otherTextareas = form.querySelectorAll(".js-other-details");
-    otherTextareas.forEach((ta) => {
-      if (ta.value) ta.classList.remove("form__textarea--hidden");
-    });
-
-    // Update helper/conditional UI (your existing setup functions)
-    if (typeof setupMaintenanceSupport === "function") setupMaintenanceSupport();
-    if (typeof setupTimelineUrgencyNotice === "function") setupTimelineUrgencyNotice();
-    if (typeof setupOtherToggles === "function") setupOtherToggles();
-    if (typeof setupAutoResizeTextareas === "function") setupAutoResizeTextareas();
+    onAfterApplyData?.();
   }
 
   function setSavedStatus(text) {
@@ -329,9 +340,7 @@ function setupProgressSaveSystem() {
   function scheduleAutoSave() {
     clearTimeout(saveTimer);
     setSavedStatus("Saving…");
-    saveTimer = setTimeout(() => {
-      saveNow();
-    }, 350);
+    saveTimer = setTimeout(() => saveNow(), 350);
   }
 
   function restore() {
@@ -352,16 +361,18 @@ function setupProgressSaveSystem() {
     }
   }
 
-  // Events
+  // Form change tracking
   form.addEventListener("input", () => {
     scheduleAutoSave();
     updateProgressUI();
   });
+
   form.addEventListener("change", () => {
     scheduleAutoSave();
     updateProgressUI();
   });
 
+  // Buttons
   saveBtn.addEventListener("click", () => {
     saveNow();
     updateProgressUI();
@@ -377,29 +388,26 @@ function setupProgressSaveSystem() {
     const confirmReset = confirm("Are you sure you want to clear all fields and start over?");
     if (!confirmReset) return;
 
-    //Reset form fields
     form.reset();
-
-    //Clear local storage
     localStorage.removeItem(STORAGE_KEY);
 
-    setupMaintenanceSupport?.();
-    setupOtherToggles?.();
-    setupTimelineUrgencyNotice?.();
+    onAfterApplyData?.();
 
-
-    //Recalculate UI
     updateProgressUI();
     updateCurrentSectionLabel();
     updateActiveSectionClass();
+    setSavedStatus("Cleared");
+  });
 
-    setSavedStatus("cleared");
-  })
-
-  window.addEventListener("scroll",  () => {
-    updateCurrentSectionLabel();
-    updateActiveSectionClass();
-  }, { passive: true });
+  // Scroll tracking
+  window.addEventListener(
+    "scroll",
+    () => {
+      updateCurrentSectionLabel();
+      updateActiveSectionClass();
+    },
+    { passive: true }
+  );
 
   // Init
   restore();
