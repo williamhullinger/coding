@@ -29,6 +29,108 @@ section {
   text-align: center;
 }
 
+/*nav*/
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(3px);
+  border-top: 1px solid #e5e7eb;
+  padding: 16px 24px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav__link {
+  text-decoration: none;
+    color: #0f172a;
+    font-weight: 700;
+    padding: 6px 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.nav__link:hover {
+  color: #2563eb;
+}
+
+.nav__brand {
+  text-decoration: none;
+    color: #0f172a;
+    font-weight: 500;
+    padding: 6px 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav__brand:hover {
+  color: #2563eb;
+}
+
+.nav__cta {
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* Promo Banner (temporary) */
+.promo-banner {
+  background: #0f172a; /* dark brand color */
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.promo-banner__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.promo-banner__text strong {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f97316;
+}
+
+.promo-banner__btn {
+  text-decoration: none;
+   /*background-color?-- your accent blue */
+  color: #2563eb;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.promo-banner__btn:hover {
+  opacity: 0.92;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+@media (max-width: 720px) {
+  .promo-banner__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 /* Hero */
 .hero {
   background: linear-gradient(135deg, #0f172a, #1e293b);
@@ -77,7 +179,7 @@ section {
 }
 
 .hero__trust {
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   opacity: 0.75;
   margin-top: 0.5rem;
 }
