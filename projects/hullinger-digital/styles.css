@@ -36,6 +36,10 @@ section {
   text-align: center;
 }
 
+.list {
+  list-style: none;
+}
+
 /*nav*/
 
 .site-header {
@@ -56,17 +60,19 @@ section {
 
 .nav__links {
   list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   gap: 24px;
 }
 
 .nav__link {
   text-decoration: none;
-    color: #0f172a;
-    font-weight: 700;
-    padding: 6px 0;
-    font-size: 1.2rem;
-    cursor: pointer;
+  color: #0f172a;
+  font-weight: 700;
+  padding: 6px 0;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .nav__link:hover {
@@ -75,11 +81,11 @@ section {
 
 .nav__brand {
   text-decoration: none;
-    color: #0f172a;
-    font-weight: 500;
-    padding: 6px 0;
-    font-weight: 700;
-    font-size: 1.5rem;
+  color: #0f172a;
+  font-weight: 500;
+  padding: 6px 0;
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .nav__brand:hover {
@@ -118,7 +124,7 @@ section {
 
 .promo-banner__btn {
   text-decoration: none;
-   /*background-color?-- your accent blue */
+  /*background-color?-- your accent blue */
   color: #2563eb;
   padding: 10px 14px;
   border-radius: 10px;
@@ -129,7 +135,13 @@ section {
 
 .promo-banner__btn:hover {
   opacity: 0.92;
-  
+}
+
+.promo-hint {
+  display: block;
+  margin-top: 4px;
+  opacity: 0.85;
+  font-style: 0.9rem;
 }
 
 @media (max-width: 720px) {
@@ -192,15 +204,22 @@ section {
   margin-top: 0.5rem;
 }
 
-
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 12px 20px;
   text-decoration: none;
+  background: #2563eb;
+  color: #fff;
   font-weight: 600;
   border-radius: 8px;
+  border: none;
   transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn {
+  background: #1e40af;
 }
 
 .btn--primary {
@@ -326,11 +345,11 @@ section {
 }
 
 .solution__list li {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    line-height: 1.7rem;
-    font-weight: 500;
-    color: rgba(15, 23, 42, 0.85);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  line-height: 1.7rem;
+  font-weight: 500;
+  color: rgba(15, 23, 42, 0.85);
 }
 
 .footer {
@@ -391,22 +410,26 @@ section {
 /* Form layout */
 .form {
   max-width: 520px;
-  margin: 0 auto;
+  margin: 40px auto;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  text-align: left;
 }
 
 .form__group {
   display: flex;
   flex-direction: column;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .form__label {
   font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 4px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
 }
 
 .form__input,
@@ -421,7 +444,7 @@ section {
 }
 
 .form__input:focus,
-.form__selec:focus,
+.form__select:focus,
 .form__textarea:focus {
   outline: none;
   border-color: #2563eb;
@@ -431,6 +454,16 @@ section {
 .form__input,
 .form__select {
   min-height: 44px;
+}
+
+/* SAFE FIX: remove the 6px font-size override */
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 .form__textarea {
@@ -462,7 +495,7 @@ section {
 
 .section__lead {
   font-size: 1.05rem;
-  max-width: 520px;
+  max-width: 620px;
   margin: 0.5rem auto 0.75rem;
 }
 
@@ -470,7 +503,7 @@ section {
   font-size: 0.9rem;
   color: #6b7280;
   margin-top: 4px;
-} 
+}
 
 .form__trust {
   font-size: 0.85rem;
@@ -478,25 +511,113 @@ section {
   margin-top: 4px;
 }
 
-  /*--thank you section--*/
-  .section--thanks {
-    padding: 80px;
-    text-align: center;
-  }
+/*--thank you section--*/
+.section--thanks {
+  padding: 80px;
+  text-align: center;
+}
 
-  .section--thanks .container {
-    max-width: 600px;
-    margin: 0 auto;
-  }
+.section--thanks .container {
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-  .section--thanks h1 {
-    margin-bottom: 16px;
-  }
+.section--thanks h1 {
+  margin-bottom: 16px;
+}
 
-  .section--thanks p {
-    margin-bottom: 24px;
-  }
+.section--thanks p {
+  margin-bottom: 24px;
+}
 
-  .section--thanks .btn {
-    margin: 8px;
-  }
+.section--thanks .btn {
+  margin: 8px;
+}
+
+
+/*--Contact Page -- */
+.page--contact .form--contact {
+  max-width: 720px;
+  margin: 1.5rem auto 0;
+  text-align: left;
+}
+
+.page--contact .form__group {
+  margin-bottom: 1rem;
+}
+
+.page--contact .form__label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.page--contact .form__input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  border-radius: 10px;
+  background: #fff;
+  font: inherit;
+}
+
+.page--contact .form__input--textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.page--contact .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1.1rem;
+  border-radius: 10px;
+}
+
+.page-contact .section + .section__header {
+  margin-top: 3rem;
+}
+
+.page--contact .section__subtitle {
+  margin-top: 1.5rem;
+}
+
+.page--contact .form--contact {
+  margin-top: 2rem;
+}
+
+.about-hero__text,
+.about-founder__text,
+.about-approach__text,
+.about-principles__text {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.about-principles__list {
+  max-width: 720px;
+  margin: 20px auto 0;
+  padding: 0;
+}
+
+.about-principles__items {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.about-founder__title,
+.about-principles__title,
+.about-approach__title {
+  max-width: 720;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section__text {
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
