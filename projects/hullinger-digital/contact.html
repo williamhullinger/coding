@@ -2,104 +2,103 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Hullinger Digital</title>
   <link rel="stylesheet" href="styles.css" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8NFY6WTDD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-G8NFY6WTDD');
   </script>
-
 </head>
 
 <body>
 
-    <!--Header / Navigation-->
+  <!-- Header / Navigation -->
   <header class="site-header">
     <nav class="nav">
       <a class="nav__brand" href="index.html">Hullinger Digital</a>
 
-      <div class="nav--links">
-        <a href="index.html">Home</a>
+      <div class="nav__links">
         <a href="work.html">Work</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </div>
 
-      <a class="btn btn__primary" href="https://calendly.com/william-hullingerdigital/30min" target="_blank" rel="noopener">
+      <a class="btn btn--primary"
+         href="https://calendly.com/william-hullingerdigital/30min"
+         target="_blank"
+         rel="noopener">
         Book Free Review
       </a>
     </nav>
   </header>
 
-    <!--Contact Section-->
+  <!-- Contact -->
   <main class="contact">
+
     <section class="contact__hero">
-        <h1> Let's build Something That Performs</h1>
+      <div class="container">
+        <h1>Let’s Build Something That Performs</h1>
         <p>
-            Whether you need a new website or want to improve the one you have, let's talk strategy.
+          Whether you need a new website or want to improve the one you have, let’s talk strategy.
         </p>
+      </div>
     </section>
 
-    <section class="contact__content">
-        <div class="contact__info">
-            <h2>Schedule a Free Website Review</h2>
-            <p>
-                The fastest way to get started is to book a free strategy call.
-                We'll review your current online presence and identify clear next steps.
-            </p>
+    
+<body class="page page--contact">
 
-            <a class="btn btn__primary"
-               href="https://calendly.com/william-hullingerdigital/30min"
-               target="_blank"
-               rel="noopener">
-            Book your free Review
-        </a>
-    </div>
+<section class="section section--page">
+  <div class="container">
+    <header class="section__header">
+      <h1 class="section__title">Schedule a Free Website Review</h1>
+      <p class="section__lead">The fastest way to get started is to book a free strategy call. We’ll review your current online presence and identify clear next steps.</p>
 
-    <div class="contact__form">
-        <h2>Send a Message</h2>
+      <a class="btn btn--primary" href="https://calendly.com/william-hullingerdigital/30min" target="_blank" rel="noopener">Book Your Free Review</a>
+      <h2 class="section__subtitle">Send a Message</h2>
+    </header>
 
-        <form action="#" method="post">
-            <div class="form__group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required />
-            </div>
+    <form class="form form--contact" action="thanks.html" method="get">
+      <div class="form__group">
+        <label class="form__label" for="name">Name *</label>
+        <input class="form__input" type="text" id="name" name="name" required>
+      </div>
 
-            <div class="form__group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required />
-            </div>
+      <div class="form__group">
+        <label class="form__label" for="email">Email *</label>
+        <input class="form__input" type="email" id="email" name="email" required>
+      </div>
 
-            <div class="form__group">
-                <label for="business">Business Name</label>
-                <input type="text" id="business" name="business" />
-            </div>
+      <div class="form__group">
+        <label class="form__label" for="business">Business Name</label>
+        <input class="form__input" type="text" id="business" name="business">
+      </div>
 
-            <div class="form__group">
-                <label for="message">How can i help?</label>
-                <textarea id="message" name="name" rows="5" required></textarea>
-            </div>
+      <div class="form__group">
+        <label class="form__label" for="message">How can I help? *</label>
+        <textarea class="form__input form__input--textarea" id="message" name="message" rows="5" required></textarea>
+      </div>
 
-            <button type="button" btn btn__primary>
-                Send Message
-            </button>
-        </form>
-    </div>
-    </section>
+      <button class="btn btn--primary" type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
   </main>
 
-  <!--Footer-->
+  <!-- Footer -->
   <footer class="footer">
-    <p>@copy 2026 Hullinger Digital. All rights reserved.</p>
+    <div class="container">
+      <p>© 2026 Hullinger Digital. All rights reserved.</p>
+    </div>
   </footer>
 
 </body>
 </html>
+        
