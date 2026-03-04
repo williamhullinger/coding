@@ -17,31 +17,91 @@
         <li class="nav__item"><a class="nav__link" href="about.html">About</a></li>
         <li class="nav__item"><a class="nav__link" href="contact.html">Contact</a></li>
       </ul>
-
       <a class="btn btn--primary" href="request.html">Request a Quote</a>
+      
     </nav>
   </header>
 
   <main class="main">
+
+        <!--Top promo strip-->
+      <section class="promo-strip">
+      <div class="container">
+
+        <p class="request-text">
+      Limited availability: <strong> websites $300-$500 </strong>(accepting 3-5 projects).
+      <span class="promo-hint">Submit the short request form below to apply.</span>
+    </p>
+    </div>
+    </section>
+
     <section class="section section--page">
       <div class="container">
 
+        <!-- section header -->
         <header class="section__header">
-          <h1 class="section__title">Request a Website Quote</h1>
+          <h1 class="section__title">Request a Website Project</h1>
+
           <p class="section__lead">
-            Share a few details and I’ll review your request. If it’s a good fit, I’ll send you a link to schedule a quick call.
+            Share a few details and I'll review your request. If it's a good fit, I'll send you a link to schedule a quick call.
           </p>
+
+          <p class="form__note">
+            No obligation - just tell me a little about your project.
+          </p>
+
+          <p class="form__trust">
+            Perfect for small business, startups, and local services
+          </p>
+
         </header>
 
-        <form class="form" action="thanks.html" method="get">
+        <!--Form section-->
+        <form class="form" 
+              name="website-request"
+              method="post"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+              action="thanks.html"
+              >
+
+            <input type="hidden" name="form-name" value="website-request">
+                <p hidden>
+                    <label>Dont fill this out if you're human: </label>
+                </p>
+
           <div class="form__group">
             <label class="form__label" for="name">Name</label>
             <input class="form__input" type="text" id="name" name="name" required />
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="business">Business name</label>
-            <input class="form__input" type="text" id="business" name="business" required />
+            <label class="form__label" for="business">Business or project name(if you have one)</label>
+            <input class="form__input" type="text" id="business" name="business" />
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="business_type">
+                What type of business is this?
+            </label>
+
+            <select class="form__select" id="business_type" name="business_type" required>
+                <option value="">Select one</option>
+                <option>Local service business</option>
+                <option>Contractor / home services</option>
+                <option>Retail / shop</option>
+                <option>Restaurant / food</option>
+                <option>Professional services</option>
+                <option>Health / fitness</option>
+                <option>Online business</option>
+                <option>Coach / consultant</option>
+                <option>Creative / media</option>
+                <option>Startup / new business</option>
+                <option>Other</option>
+            </select>
+            <small class="form__hint">
+                Example: Landscaping company, cleaning service, coaching business, online store.
+            </small>
           </div>
 
           <div class="form__group">
@@ -64,13 +124,48 @@
             </select>
           </div>
 
+          <!--Timeline question-->
+          <div class="form__group">
+            <label class="form__label" for="timeline">
+                When are you hoping to launch your website?
+            </label>
+
+            <select class="form__select" id="timeline" name="timeline" required>
+                <option value="">Select one</option>
+                <option>As soon as possible</option>
+                <option>Within the next 1-2 months</option>
+                <option>within the next 3-6 months</option>
+                <option>Just exploring options</option>
+            </select>
+          </div>
+
+          <!--Budget question-->
+          <div class="form__group">
+            <label class="form__label" for="budget">
+                What budget range are you considering for your website?
+            </label>
+
+            <select class="form__select" id="budget" name="budget" required>
+                <option value="">Select one</option>
+                <option>$300 - $500 (starter website)</option>
+                <option>$500 - $1,000</option>
+                <option>$1,000 - $2,500</option>
+                <option>%2,500+</option>
+                <option>Not sure yet</option>
+            </select>
+          </div>
+
+            <!--Textarea-->
           <div class="form__group">
             <label class="form__label" for="goal">What do you want your website to help you do?</label>
             <textarea class="form__textarea" id="goal" name="goal" rows="4" required></textarea>
+            <small class="form__hint">
+                Example: generate leads, show services, get more appointments, replace an outdated website.
+            </small>
           </div>
 
           <div class="form__group form__group--actions">
-            <button class="btn btn--primary" type="submit">Submit Request</button>
+            <button class="btn btn--primary" type="submit">Get my project quote</button>
           </div>
 
           <p class="form__note">
@@ -82,9 +177,10 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p class="site-footer__text">&copy; Hullinger Digital</p>
+    <!--Footer-->
+  <footer class="footer">
+    <div class="container footer__container">
+      <p class="site-footer__text">&copy; 2026 Hullinger Digital. All rights reserved</p>
     </div>
   </footer>
 
