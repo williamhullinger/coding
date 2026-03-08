@@ -1,6 +1,4 @@
-/* -------------------------
-GLOBAL RESET
-------------------------- */
+/* --GLOBAL RESET-- */
 
 *,
 *::before,
@@ -21,18 +19,14 @@ img {
   max-width: 100%;
 }
 
-/* -------------------------
-CONTAINER
-------------------------- */
+/* --CONTAINER-- */
 
 .container {
   width: min(1100px, 92%);
   margin-inline: auto;
 }
 
-/* -------------------------
-HEADER / NAV
-------------------------- */
+/* --HEADER / NAV-- */
 
 .site-header {
   position: sticky;
@@ -40,97 +34,198 @@ HEADER / NAV
   z-index: 1000;
   background: #f6f3ee;
   border-bottom: 1px solid #e6dfd5;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  min-height: 160px;
 }
 
-.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 88px;
-}
-
-.nav .container{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: min(1100px, 92%);
-  min-height: 88px;
+.nav.container {
+  position: relative;
+  width: min(2000px, 95%);
   margin-inline: auto;
-}
-
-.nav__brand {
-    display: flex;
-    align-items: center;
-}
-
-.nav__brand img {
-    display: block;
-    height: 48px;
-    width: auto;
-}
-
-.nav ul {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    letter-spacing: .05em;
-    position: relative;
-}
-
-.nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0%;
-    height: 2px;
-    background: #a7703a;
-    transition: width .25s ease;
-}
-
-.nav a:hover {
-    color: #a7703a;
-}
-
-.nav img {
-  height: 40px;
-}
-
-.nav__links {
+  min-height: 160px;
   display: flex;
-  gap: 20px;
-  font-size: 1rem;
   align-items: center;
-  list-style: none;
-  margin: 0;
+  justify-content: center;
+  padding-inline: 220px;
   padding: 0;
 }
 
+/* LEFT + RIGHT LINKS + LOGO stay centered together */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  list-style: none;
+  margin: 0;
+  padding-inline: 140px;
+  
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav__brand img {
+  display: block;
+  height: 300px;
+  width: auto;
+  
+}
+
+/* SOCIAL hard left */
+.nav__social {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* UTILITIES hard right */
+.nav__utilities {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Bigger nav links */
 .nav__link {
+  font-family: "Source sans 3", serif;
   display: inline-block;
-  line-height: 1;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
   color: #333;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  
 }
 
+.nav__links--left {
+  margin-right: 100px;
+}
+
+.nav__links--right {
+  margin-left: 100px;
+}
 .nav__link:hover {
-  color: #7a5c3e;
+  color: #a7703a;
 }
 
-/* -------------------------
-HERO
-------------------------- */
+/* Social icons */
+.nav__social {
+  position: absolute;
+  left: 0;
+  top: -24px;
+  transform: none;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-right: auto;
+}
+
+.nav__utilities {
+  margin-left: auto;
+  position: absolute;
+  right: 0;
+  top: -24px;
+  transform: none;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #d7c8b7;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav__social-link i {
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* Phone */
+.nav__phone {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nav__phone:hover {
+  color: #a7703a;
+}
+
+.nav__social a,
+.nav__cart{
+  border: none;
+  border-radius: 0;
+}
+
+.nav__cart i,
+.nav__social i {
+  font-size: 1.8rem;
+  color: #3a3a3a;
+}
+
+.nav__social a:hover i,
+.nav__cart:hover i{
+  color: #a7703a;
+}
+
+
+/* Cart */
+.nav__cart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav__cart:hover {
+  color: #a7703a;
+  border-color: #a7703a;
+}
+
+.nav__cart-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+/* --HERO-- */
 .hero {
   position: relative;
   width: 100%;
@@ -200,12 +295,8 @@ HERO
   color: #fff;
 
 }
-/*-- text outline= -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.6); --*/
 
-
-/* -------------------------
-INTRO
-------------------------- */
+/* --INTRO-- */
 
 .intro {
   padding: 60px 0;
@@ -219,7 +310,7 @@ INTRO
 }
 
 .intro__heading {
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-weight: 600;
 }
 
@@ -243,9 +334,7 @@ INTRO
 
 }
 
-/* -------------------------
-SPECIAL (3 COLUMN SECTION)
-------------------------- */
+/* --SPECIAL (3 COLUMN SECTION)-- */
 
 .special {
   padding: 80px 0;
@@ -259,6 +348,7 @@ SPECIAL (3 COLUMN SECTION)
 
 .special__title {
   text-align: center;
+  font-size: 3rem;
 }
 
 .special__grid {
@@ -269,7 +359,7 @@ SPECIAL (3 COLUMN SECTION)
 
 .special__card {
   background: white;
-  padding: 25px;
+  padding: 30px;
   border-radius: 12px;
   text-align: center;
 
@@ -279,9 +369,7 @@ SPECIAL (3 COLUMN SECTION)
   margin-bottom: 10px;
 }
 
-/* -------------------------
-SERVICES / PRODUCTS
-------------------------- */
+/* --SERVICES / PRODUCTS-- */
 
 .services {
   padding: 80px 0;
@@ -309,9 +397,12 @@ SERVICES / PRODUCTS
     display: block;
 }
 
-/* -------------------------
-ABOUT
-------------------------- */
+.services__heading {
+  text-align: center;
+  font-size: 3rem;
+}
+
+/* --ABOUT-- */
 
 .about {
   padding: 80px 0;
@@ -358,9 +449,7 @@ ABOUT
   background-color: #8d5c2c;
 }
 
-/* -------------------------
-TESTIMONIALS
-------------------------- */
+/* --TESTIMONIALS-- */
 
 .testimonials {
   padding: 80px 0;
@@ -385,9 +474,7 @@ TESTIMONIALS
     font-size: 4rem;
 }
 
-/* -------------------------
-CTA
-------------------------- */
+/* --CTA-- */
 
 .cta {
   padding: 80px 0;
@@ -397,7 +484,7 @@ CTA
 .btn__primary {
   display: inline-block;
   padding: 24px 44px;
-  background: white;
+  background: #efe7da;
   color: #553e27;
   border-radius: 14px;
   font-size: 1.2rem;
