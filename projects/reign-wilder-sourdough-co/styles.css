@@ -344,6 +344,8 @@ img {
 .special__container {
   display: grid;
   gap: 40px;
+  width: min(1400px, 96%);
+  margin-inline: auto;
 }
 
 .special__title {
@@ -353,20 +355,27 @@ img {
 
 .special__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(320px, 420px));
+  justify-content: center;
   gap: 25px;
+
 }
 
 .special__card {
   background: white;
-  padding: 30px;
   border-radius: 12px;
   text-align: center;
-
+  padding: 50px;
+  width: 100%;
 }
 
 .special__card-title {
   margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.special__text {
+  font-size: 1.5rem;
 }
 
 /* --SERVICES / PRODUCTS-- */
@@ -466,12 +475,30 @@ img {
   background: #a7703a;
   padding: 25px;
   border-radius: 12px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
 }
 
 .testimonials__heading {
     color: #fff;
     text-align: center;
     font-size: 4rem;
+}
+
+.reviews__btn {
+  display: block;
+  padding: 12px 26px;
+  background: #e6dfd5;
+  color: #553e27;
+  border-radius: 14px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: .04em;
+  margin: 0 auto;
+  width: fit-content;
 }
 
 /* --CTA-- */
@@ -481,6 +508,15 @@ img {
   text-align: center;
 }
 
+.cta__heading {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.cta__text {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 .btn__primary {
   display: inline-block;
   padding: 24px 44px;
